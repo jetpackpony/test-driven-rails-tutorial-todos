@@ -6,7 +6,7 @@ feature 'User sees only own todos' do
 
     sign_in_as 'someone@test.com'
 
-    expect(page).not_to have_css '.todos li', text: 'Buy milk'
+    expect(page).not_to have_todo 'Buy milk'
   end
 end
 
