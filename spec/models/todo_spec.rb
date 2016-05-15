@@ -10,3 +10,12 @@ describe Todo, '#completed?' do
     expect(todo.completed?).to be_falsy
   end
 end
+
+describe Todo, '#complete!' do
+  it 'updates completed_at for todo' do
+    todo = Todo.create! completed_at: nil
+    todo.complete!
+    todo.reload
+    expect(todo.completed?).to be_truthy
+  end
+end
