@@ -19,3 +19,12 @@ describe Todo, '#complete!' do
     expect(todo.completed?).to be_truthy
   end
 end
+
+describe Todo, '#incomplete!' do
+  it 'resets completed_at for todo to nil' do
+    todo = Todo.create! completed_at: Time.now
+    todo.incomplete!
+    todo.reload
+    expect(todo.completed?).to be_falsy
+  end
+end
